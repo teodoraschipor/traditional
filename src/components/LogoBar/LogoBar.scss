@@ -1,0 +1,22 @@
+.logo-bar {
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    top: 40px;
+    border-bottom: 1px solid rgb(214, 214, 214);
+    .logo-icon {
+        height: 45px;
+        cursor: pointer;
+    }
+}
+
+@media screen and (min-width: 900px) {
+    .logo-bar {
+        height: 80px;
+        .logo-icon {
+            height: 60px;
+        }
+    }
+}

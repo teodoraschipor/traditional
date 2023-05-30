@@ -1,0 +1,59 @@
+.footer {
+    //background-color: rgb(20, 20, 20);
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 600px;
+    box-shadow: 0px -2px 2px 0px rgb(223, 223, 223);
+    &-logo {
+        height: 50px;
+    }
+    &-section {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 30px;
+        &_title {
+            color: black;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+    }
+    .field {
+        color: black;
+        opacity: 0.7;
+        text-decoration: none;
+        cursor: pointer;
+        margin-bottom: 15px;
+    }
+    .field:hover, .field:focus { 
+        cursor: pointer;
+        opacity: 1;
+        transition: 0.3s ease-in-out
+    }
+}
+
+@media screen and (min-width: 900px) {
+    .footer {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        height: 200px;
+        &-logo {
+            margin: 0;
+            height: 80px;
+        }
+        &-section {
+            margin-top: 0;
+            &_title {
+                margin-bottom: 30px;
+            }
+        }
+        .field {  
+            margin-bottom: 10px;
+        }
+    }
+}

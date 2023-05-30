@@ -1,0 +1,29 @@
+@use "../../utils/variables";
+
+.title-container {
+    position: relative;
+    display: inline-block;
+}
+
+.title {
+    margin: 0;
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: 600;
+    width: fit-content;
+    text-align: center;
+}
+
+.title::after {
+    content: '';
+    position: absolute;
+    height: 4px;
+    left: -3px;
+    bottom: 0;
+    background-color: variables.$traditional-red;
+    transform: scaleX(1);
+    font-weight: 800;
+    bottom: -5px;
+    width: calc(100% + 6px);
+    border-radius: 5px;
+}

@@ -9,10 +9,10 @@ import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../firebase/config";
 import useLocalStorage from "../../hooks/useLocalStorage";
 import { LoadingContext } from "../../App";
-import Loader from "../../components/Loader/Loader";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleArrowLeft, faCircleArrowRight } from "@fortawesome/free-solid-svg-icons";
 import Title from "../../components/Title/Title";
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 const Emisiuni = () => {
 
@@ -58,9 +58,9 @@ const Emisiuni = () => {
         fetchData();
       }, [getStiriLocalStorage, setEmisiuniLocalStorage, setLoading])
 
-      useEffect(() => {
-        console.log('loading: ', loading)
-      }, [loading])
+    //   useEffect(() => {
+    //     console.log('loading: ', loading)
+    //   }, [loading])
 
         // if (!Array.isArray(emisiuni) || emisiuni.length <= 0) {
         //     return null;
@@ -68,31 +68,34 @@ const Emisiuni = () => {
 
     return(
         <>
-            <div style={{display: loading ? "block" : "none"}}>
-                <Loader />
-            </div>
-            <div style={{display: loading ? "none" : "block"}}>
-                    <Title text="Emisiuni" />
-                    <section className='slider'>
-                        <FontAwesomeIcon className='left-arrow' icon={faCircleArrowLeft} onClick={prevSlide} />
-                        <FontAwesomeIcon className='right-arrow' icon={faCircleArrowRight} onClick={nextSlide} />
-                        {emisiuni.map((slide, index) => {
-                        return (
-                            <div
-                            className={index === current ? 'slide active' : 'slide'}
-                            key={index}
-                            >
-                            {index === current && (
-                                <div>
-                                    <img onLoad={() => {console.log('heeei'); setLoading(false)}} src={slide.imageSource} alt={slide.title} className='image' />
-                                    <p className="slide-title">{slide.title}</p>
-                                </div>
-                            )}
+            <HelmetProvider>
+                <div>
+                    <Helmet>
+                        <title>Emisiuni - Tradițional TV</title>
+                        <meta name="description" content="Emisiuni - Tradițional TV" />
+                    </Helmet>
+                </div>
+            </HelmetProvider>
+                <Title text="Emisiuni" />
+                <section className='slider'>
+                    <FontAwesomeIcon className='left-arrow' icon={faCircleArrowLeft} onClick={prevSlide} />
+                    <FontAwesomeIcon className='right-arrow' icon={faCircleArrowRight} onClick={nextSlide} />
+                    {emisiuni.map((slide, index) => {
+                    return (
+                        <div
+                        className={index === current ? 'slide active' : 'slide'}
+                        key={index}
+                        >
+                        {index === current && (
+                            <div>
+                                <p className="slide-title">{slide.title}</p>
+                                <img onLoad={() => { setLoading(false)}} src={slide.imageSource} alt={slide.title} className='image' />
                             </div>
-                        );
-                        })}
-                    </section>
-            </div>
+                        )}
+                        </div>
+                    );
+                    })}
+                </section>
         </>
       )
 }

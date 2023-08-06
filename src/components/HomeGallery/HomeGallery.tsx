@@ -4,7 +4,6 @@ import "./HomeGallery.scss";
 const HomeGallery = (props: any) => {
     
     const navigate = useNavigate();
-    console.log(props)
 
     const displayFirst = (items: any) => {
         return items.map((item: any, index: number) => {

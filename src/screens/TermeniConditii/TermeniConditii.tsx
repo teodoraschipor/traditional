@@ -1,8 +1,17 @@
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import Title from "../../components/Title/Title";
 
 const TermeniConditii = () => {
     return(
         <>
+            <HelmetProvider>
+                <div>
+                    <Helmet>
+                        <title>Termeni și condiții - Tradițional TV</title>
+                        <meta name="description" content="Termeni și condiții - Tradițional TV" />
+                    </Helmet>
+                </div>
+            </HelmetProvider>
             <Title text="Termeni și condiții" />
             
             <br />

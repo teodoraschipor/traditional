@@ -1,8 +1,17 @@
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import Title from "../../components/Title/Title";
 
 const Confidentialitate = () => {
     return(
         <>
+            <HelmetProvider>
+                <div>
+                    <Helmet>
+                        <title>Confidențialitate și cookies - Tradițional TV</title>
+                        <meta name="description" content="Ne conformam cu legea in vigoare si tinem sa precizam ca va vom proteja datele personale, drepturile dumneavoastra de confidentialitate. Cititi cu atentie acesti termeni si apoi continuati utilizarea serviciilor noastre, doar daca sunteti de accord cu politica noastra." />
+                    </Helmet>
+                </div>
+            </HelmetProvider>
             <Title text="Confidențialitate și cookies" />
 
             <h4>CONFIDENȚIALITATE</h4>
@@ -78,7 +87,6 @@ const Confidentialitate = () => {
             Cum puteţi controla cookie-urile?
             <br/>
             Puteţi controla şi/sau şterge cookie-urile după cum doriţi – pentru detalii, consultaţi site-ul aboutcookies.org. Puteți șterge toate cookie-urile din calculatorul dumneavoastră și puteți seta majoritatea browserelor să blocheze plasarea acestora. Dacă faceţi acest lucru, este posibil să fiţi nevoit să setaţi manual unele preferinţe, de fiecare dată când vizitaţi site-ul. De asemenea, s-ar putea ca unele servicii sau opţiuni să nu funcţioneze.
-
 
         </>
     )

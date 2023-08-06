@@ -44,25 +44,16 @@
 }
 
 .menu.open .menu-button .top {
-    transform: rotate(-45deg);
-    width: 40px;
-    transform-origin: right;
-    top: -14px;
-    left: -10px
+    transform: translate(0, 9px) rotate(-45deg);
 }
 
 
 .menu.open .menu-button .bottom  {
-    transform: rotate(45deg);
-    width: 40px;
-    transform-origin: right;
-    top: 14px;
-    left: -10px
+    transform: translate(0, -11px) rotate(45deg);
 }
 
 
 .menu.open .menu-button .middle  {
-    transform: translateX(20px);
     opacity: 0;
 }
 
@@ -85,6 +76,8 @@
             cursor: pointer; 
             position: relative;
             text-transform: uppercase;
+            font-size: 18px;
+            font-weight: bold;
         }
         &_item.active::after {
             content: '';
@@ -145,6 +138,8 @@
             &_item {
                 color: variables.$traditional-red;
                 cursor: pointer;
+                font-size: 16px;
+                font-weight: normal;
                 &:not(:last-child) {
                     margin-right: 45px;
                 }

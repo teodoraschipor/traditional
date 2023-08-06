@@ -4,6 +4,7 @@ import "./Stire.scss";
 import { useParams } from "react-router-dom";
 import { EmisiuniItems } from "../../mockups";
 import { IStire } from "../../TypesInterfaces";
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 const HtmlToReactParser = require('html-to-react').Parser;
 
 const Emisiune = () => {
@@ -22,7 +23,14 @@ const Emisiune = () => {
 
     return(
         <>
-
+            <HelmetProvider>
+                <div>
+                    <Helmet>
+                        <title>Emisiune - Tradițional TV</title>
+                        <meta name="description" content="Emisiune - Tradițional TV" />
+                    </Helmet>
+                </div>
+            </HelmetProvider>
             <Title text={emisiune?.title} />
             <div className="emisiune-content">
                 {htmlToReactParser.parse(emisiune.content)}

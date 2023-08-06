@@ -6,10 +6,10 @@ import { useContext, useEffect, useState } from "react";
 import { LoadingContext } from "../../App";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../firebase/config";
-import Loader from "../../components/Loader/Loader";
 import useLocalStorage from "../../hooks/useLocalStorage";
 import HomeGallery from "../../components/HomeGallery/HomeGallery";
 import "./Acasa.scss"
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 const Acasa = () => {
 
@@ -42,15 +42,19 @@ const Acasa = () => {
         fetchData();
       }, [])
 
-    if(loading)
-        return <Loader />
-
     return(
         <>
-            {/* {location.pathname === getRoutePath(TraditionalTvRoutesNames.ACASA) && <Title text="Acasă" />} */}
+            <HelmetProvider>
+                <div>
+                    <Helmet>
+                        <title>Tradițional TV - Fii tradițional!</title>
+                        <meta name="description" content="Tradițional TV oferă telespectatorilor noutăți muzicale, emisiuni interactive și talk show-uri cu artiștii consacrați" />
+                    </Helmet>
+                </div>
+            </HelmetProvider>
+            {location.pathname === getRoutePath(TraditionalTvRoutesNames.ACASA) && <Title text="Acasă" />}
             <HomeGallery items={stiri} />
             {/* <div className="test"></div> */}
-            {console.log(stiri)}
         </>
     )
 }

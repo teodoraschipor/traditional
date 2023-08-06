@@ -41,11 +41,11 @@ const Carousel = () => {
 
             {carouselItems.map((item: any, index: number) => {
                 return <div className="carousel__item" style={{transform: `translate(-${currentIndex * 100}%)`}} key={index}>
+                        <div className="carousel__item__photo__details">
+                            <p>{item.title}</p>
+                        </div>
                         <div className="carousel__item__photo">
                             <img src={`${process.env.PUBLIC_URL}/logo.png`} alt={item.title} />
-                            <div className="carousel__item__photo__details">
-                                <p>{item.title}</p>
-                            </div>
                         </div>
                     </div>
             })}

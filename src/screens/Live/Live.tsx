@@ -1,12 +1,25 @@
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import Title from "../../components/Title/Title";
 import "./Live.scss"
 
 const Live = () => {
     return(
-        <div className="live-content">
+        <>
+            <HelmetProvider>
+                <div>
+                    <Helmet>
+                        <title>Live - Tradițional TV</title>
+                        <meta name="description" content="Live - Tradițional TV" />
+                    </Helmet>
+                </div>
+            </HelmetProvider>
+            <div className="live-content">
             <Title text="Live" />
-            {/* <iframe src="https://rds.live/traditional-tv/"allowFullScreen title="Live" className="live-iframe"></iframe> */}
+            <p>Puteți viziona transmisia live a postului Tradițional TV, derulând în jos în următoarea fereastră:</p>
+            <br/><br/>
+            <iframe src="https://rds.live/traditional-tv/"allowFullScreen title="Live" className="live-iframe"></iframe> 
         </div>
+        </>
     )
 }
 

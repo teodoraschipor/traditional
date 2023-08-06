@@ -5,7 +5,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 30px;
+    margin-top: 0px;
     margin-bottom: 30px;
 
     .svg-inline--fa {
@@ -22,7 +22,7 @@
         border-radius: 10px;
         object-fit: cover;
         @media screen and (min-width: 900px) {
-            width: 70vw;
+            width: 60vw;
         }
       }
       
@@ -58,10 +58,10 @@
 
       .slide-title {
         z-index: 999;
-        font-size: 30px;
+        font-size: 36px;
         font-weight: bold;
         text-align: center;
-        margin-top: 20px;
+        margin-bottom: 20px;
         color: variables.$traditional-red;
         text-shadow: 2px 0px 2px black;
       }

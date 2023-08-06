@@ -1,8 +1,17 @@
+import { Helmet, HelmetProvider } from "react-helmet-async";
 import Title from "../../components/Title/Title";
 
 const CodConduita = () => {
     return(
         <>
+            <HelmetProvider>
+                <div>
+                    <Helmet>
+                        <title>Cod de conduită - Tradițional TV</title>
+                        <meta name="description" content="TRADIŢIONAL TV este un post de televiziune de muzică şi divertisment folcloric cu o viziune de prospeţime şi tinereţe menită să ţină toate generaţiile de telespectatori cât mai aproape de spaţiul tradiţional românesc." />
+                    </Helmet>
+                </div>
+            </HelmetProvider>
             <Title text="Cod de conduită" />
             <br/>
         TRADIŢIONAL TV este un post de televiziune de muzică şi divertisment folcloric cu o viziune de prospeţime şi tinereţe menită să ţină toate generaţiile de telespectatori cât mai aproape de spaţiul tradiţional românesc. 

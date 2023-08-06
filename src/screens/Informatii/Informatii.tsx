@@ -1,8 +1,17 @@
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import Title from "../../components/Title/Title";
 
 const Informatii = () => {
     return(
         <>
+            <HelmetProvider>
+                <div>
+                    <Helmet>
+                        <title>Informații - Tradițional TV</title>
+                        <meta name="description" content="Informații - Tradițional TV" />
+                    </Helmet>
+                </div>
+            </HelmetProvider>
             <Title text="Informații de interes public" />
             <br />
             Postul de televiziune TRADIȚIONAL TV este deținut de către societatea comercială  SUCEAVA CULTURAL MEDIA S.R.L. 

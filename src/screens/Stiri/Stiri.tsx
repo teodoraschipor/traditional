@@ -8,8 +8,8 @@ import { useContext, useEffect, useState } from "react";
 import { LoadingContext } from "../../App";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../firebase/config";
-import Loader from "../../components/Loader/Loader";
 import useLocalStorage from "../../hooks/useLocalStorage";
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 const Stiri = () => {
 
@@ -42,14 +42,18 @@ const Stiri = () => {
         fetchData();
       }, [])
 
-    if(loading)
-        return <Loader />
-
     return(
         <>
+            <HelmetProvider>
+                <div>
+                    <Helmet>
+                        <title>Știri - Tradițional TV</title>
+                        <meta name="description" content="Știri - Tradițional TV" />
+                    </Helmet>
+                </div>
+            </HelmetProvider>
             {location.pathname === getRoutePath(TraditionalTvRoutesNames.STIRI) && <Title text="Știri" />}
             <Gallery items={stiri} />
-            {console.log(stiri)}
         </>
     )
 }

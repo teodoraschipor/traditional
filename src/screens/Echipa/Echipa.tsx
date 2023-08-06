@@ -1,9 +1,17 @@
-import Title from "../../components/Title/Title";
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 const Echipa = () => {
     return(
         <>
-            <Title text="Echipa" />
+            <HelmetProvider>
+                <div>
+                    <Helmet>
+                        <title>Echipa - Tradițional TV</title>
+                        <meta name="description" content="Echipa - Tradițional TV" />
+                    </Helmet>
+                </div>
+            </HelmetProvider>
+            <p>...Pagină în construcție...</p>
         </>
     )
 }

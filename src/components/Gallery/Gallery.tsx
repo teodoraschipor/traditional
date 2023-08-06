@@ -8,7 +8,6 @@ import { useLocation } from "react-router-dom";
 const Gallery = (props: any) => {
     let limit = 3;
     const location = useLocation();
-    console.log(props)
     
     const display = (item: IGalleryItem, index: number) => {
         if(index > limit) 

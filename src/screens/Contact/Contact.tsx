@@ -3,6 +3,7 @@ import Title from "../../components/Title/Title";
 // import emailjs from "@emailjs/browser";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 const Contact = () => {
     const form = useRef();
@@ -30,6 +31,14 @@ const Contact = () => {
 
     return(
         <>
+              <HelmetProvider>
+                <div>
+                  <Helmet>
+                      <title>Contact - Tradițional TV</title>
+                      <meta name="description" content="Ne puteți contacta pe adresa de email traditionaltv@yahoo.ro" />
+                  </Helmet>
+              </div>
+            </HelmetProvider>
             <Title text="Contact" />
             <form className="contact-form" onSubmit={sendEmail}>
                 <Link to={"mailto:traditionaltv@yahoo.ro"}>traditionaltv@yahoo.ro</Link>

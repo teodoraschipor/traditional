@@ -20,8 +20,8 @@ const TestMenu = () => {
         const getMenuItems : any[] = [];
         const querySnapshot = await getDocs(collection(db, "MenuItems"));
         querySnapshot.forEach((doc: any) => {
-        // doc.data() is never undefined for query doc snapshots
-        console.log(typeof(doc.data()));
+        // // doc.data() is never undefined for query doc snapshots
+        // console.log(typeof(doc.data()));
         for (const [key, value] of Object.entries(doc.data())) {
             getMenuItems.push(value)
         }

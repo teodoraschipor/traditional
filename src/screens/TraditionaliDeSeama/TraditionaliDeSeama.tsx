@@ -6,7 +6,6 @@ const TraditionaliDeSeama = () => {
     return(
         <>
             <Title text="Tradiționali de seamă" />
-            <Gallery items={StiriList} />
         </>
     )
 }

@@ -3,14 +3,18 @@ import ReactDOM from 'react-dom/client';
 import './index.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { FirebaseContext } from './context/FirebaseContext';
+import { firebase } from './firebase/config';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+    <React.StrictMode>
+      {/* <FirebaseContext.Provider value={{ firebase }}> */}
+        <App />
+      {/* </FirebaseContext.Provider> */}
+    </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

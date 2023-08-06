@@ -14,11 +14,11 @@ import Confidentialitate from "../screens/Confidentialitate/Confidentialitate"
 import TermeniConditii from "../screens/TermeniConditii/TermeniConditii"
 import Informatii from "../screens/Informatii/Informatii"
 import CodConduita from "../screens/CodConduita/CodConduita"
-import StiriItem from "../screens/StiriItem/StiriItem"
+import Stire from "../screens/Stire/Stire"
 
 export const AppRouter = () => {
     return(
-        <BrowserRouter>
+        <BrowserRouter basename="/">
             <div className="app">
                 <Routes>
                     <Route 
@@ -97,7 +97,7 @@ export const AppRouter = () => {
                     path={getRoutePath(TraditionalTvRoutesNames.STIRIITEM)} 
                     element={
                         <Layout>
-                            <StiriItem />
+                            <Stire />
                         </Layout>} />
                     {/* default redirection to home page */}
                     <Route

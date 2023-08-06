@@ -1,0 +1,26 @@
+.title-image-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    img {
+            width: 350px;
+            height: 200px;
+        @media screen and (min-width: 900px) {
+            width: 700px;
+            height: 400px;
+        }
+        border-radius: 10px;
+    }
+}
+
+.stire-content {
+    .subtitle {
+        font-weight: bold;
+        margin-top: 20px;
+    }
+}
+.author {
+    opacity: 0.7;
+    margin-top: 40px;
+}

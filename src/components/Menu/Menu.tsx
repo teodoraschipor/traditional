@@ -1,5 +1,5 @@
 import "./Menu.scss";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom"
 import { IMenuItems } from "../../TypesInterfaces";
 import { menuItems } from "../../mockups";
@@ -8,6 +8,11 @@ const Menu = () => {
     
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
+ // const firebase = useContext(FirebaseContext);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+  }, [])
 
   const renderLink = ({ name, path }: IMenuItems) => {
     const isActive = location.pathname === path;
@@ -15,7 +20,7 @@ const Menu = () => {
         <Link to={path} key={path} className={"menu-list_item " + (isActive && "active")} onClick={() => setMenuOpen(false)}>{name}</Link>
     )
   }
-  
+
     return(
         <div className={`menu ${menuOpen ? 'open' : ''}`}>
             <div className="menu-button" onClick={() => setMenuOpen(!menuOpen)}>

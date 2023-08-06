@@ -4,11 +4,24 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    margin-top: 30px;
+
+    a {
+        color: rgb(73, 73, 73);
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 10px;
+        &:hover, &:focus {
+            color: black;
+            transition: 0.3s ease-in-out;
+        }
+    }
 
     label{
         color: rgb(50, 50, 50);
         font-weight: bold;
+    }
+    label#first {
+        margin-top: 20px;
     }
     input[type=text] {
         height: 25px;
@@ -42,6 +55,11 @@
         text-transform: uppercase;
         &:hover, &:focus {
             background-color: variables.$traditional-dark-red;
+        }
+        &:disabled {
+            background-color: rgb(183, 183, 183);
+            border: 1px solid rgb(116, 116, 116);
+            cursor: context-menu;
         }
     }
 }

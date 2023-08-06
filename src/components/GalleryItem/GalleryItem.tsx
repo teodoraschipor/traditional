@@ -10,10 +10,13 @@ const GalleryItem = (props: IGalleryItem) => {
     const navigate = useNavigate();
     const location = useLocation();
     const [focus, setFocus] = useState(false);
+
     return(
         <div className={"gallery-item " + (focus && "focus")} onClick={() => {
-            if(location.pathname === getRoutePath(TraditionalTvRoutesNames.ACASA || location.pathname === getRoutePath(TraditionalTvRoutesNames.STIRI)))
-                navigate(`/stiri/${props.id}`)
+            if(location.pathname === getRoutePath(TraditionalTvRoutesNames.STIRI))
+                {
+                    navigate(`/stiri/${props.id}`)
+                }
             else if(location.pathname === getRoutePath(TraditionalTvRoutesNames.TRADITIONALIDESEAMA))
                 setFocus(true)
         }}>

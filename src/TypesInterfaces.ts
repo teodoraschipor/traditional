@@ -28,8 +28,11 @@ export interface IGalleryItem {
     onClick?: boolean,
 }
 
-export interface IGallery {
-    items: Array<IGalleryItem[]>,
+export interface ICarouselItem {
+    id: number,
+    imageSource: string,
+    title: string,
+    onClick?: boolean,
 }
 
 export interface IStire {
@@ -38,4 +41,17 @@ export interface IStire {
     image: string,
     author: string,
     content: string,
+}
+
+export interface IEmisiune {
+    id: number,
+    title: string,
+    image: string,
+    author: string,
+    content: string,
+}
+
+export interface ILoadingContextValue {
+    loading: boolean,
+    setLoading: (loading: boolean) => void,
 }

@@ -1,5 +1,70 @@
-@media screen and  (min-width: 900px) {
-    .swiper-container {
-        height: 700px
+@use "../../utils/variables.scss";
+
+.slider {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+
+    .svg-inline--fa {
+        color: variables.$traditional-red;
+        filter:drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.821))
     }
-}
+    .svg-inline--fa:hover {
+        color: variables.$traditional-dark-red;
+        transition: 0.3s ease-in-out;
+    }
+
+    .image {
+        width: 85vw;
+        border-radius: 10px;
+        object-fit: cover;
+        @media screen and (min-width: 900px) {
+            width: 70vw;
+        }
+      }
+      
+      .right-arrow {
+        position: absolute;
+        top: 38%;
+        right: 6%;
+        font-size: 2.5rem;
+        z-index: 10;
+        cursor: pointer;
+        user-select: none;
+        @media screen and (min-width: 900px) {
+            font-size: 3rem;
+            right: 0px;
+            top: 45%;
+        }
+      }
+      
+      .left-arrow {
+        position: absolute;
+        top: 38%;
+        left: 6%;
+        font-size: 2.5rem;
+        z-index: 10;
+        cursor: pointer;
+        user-select: none;    
+        @media screen and (min-width: 900px) {
+            font-size: 3rem;
+            left: 0px;
+            top: 45%;
+        }
+      }
+
+      .slide-title {
+        z-index: 999;
+        font-size: 30px;
+        font-weight: bold;
+        text-align: center;
+        margin-top: 20px;
+        color: variables.$traditional-red;
+        text-shadow: 2px 0px 2px black;
+      }
+  }
+  
+ 

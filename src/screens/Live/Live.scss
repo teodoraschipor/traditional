@@ -1,0 +1,19 @@
+.live-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.live-iframe {
+    width: 100%;
+    height: 200px;
+
+    @media screen and (min-width: 550px) {
+        height: 400px;
+    }
+
+    @media screen and (min-width: 1025px) {
+        
+        width: 90%;
+        height: 450px;
+    }
+}

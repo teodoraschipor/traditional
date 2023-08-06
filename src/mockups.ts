@@ -1,4 +1,4 @@
-import { IFooterItem, IGalleryItem, IMenuItems, IStire } from "./TypesInterfaces";
+import { ICarouselItem, IEmisiune, IFooterItem, IGalleryItem, IMenuItems } from "./TypesInterfaces";
 import { TraditionalTvRoutesNames } from "./routes/routes-names";
 import { getRoutePath } from "./routes/routes-utils";
 
@@ -52,6 +52,11 @@ export const footerSections: IFooterItem[] = [
                 name: "0330 883 395",
                 type: "phone",
                 path: "tel:+40330883395",
+            },
+            {
+                name: "traditionaltv@yahoo.ro",
+                type: "email",
+                path: "mailto: traditionaltv@yahoo.ro",
             },
             {
                 name: "contact@traditionaltv.net",
@@ -159,9 +164,32 @@ export const StiriList : Array<IGalleryItem[]> = [
             title: "Teodora e cea mai smechera de pe planeta Pamant"
         },
     ],
+];
+
+export const EmisiuniList : ICarouselItem[] = [
+    {
+        id: 1,
+        imageSource: "../../assets/paul-ananie.jpg",
+        title: "Dedicatii muzicale"
+    },
+    {
+        id: 2,
+        imageSource: "../../assets/Teodora.jpeg",
+        title: "Drag de viata cu doinasii"
+    },
+    {
+        id: 3,
+        imageSource: "../../assets/Teodora.jpeg",
+        title: "Portret muzical"
+    },
+    {
+        id: 4,
+        imageSource: "../../assets/Teodora.jpeg",
+        title: "Teodora e cea mai smechera de pe planeta Pamant"
+    },
 ]
 
-export const StiriItems: IStire[] = [
+export const EmisiuniItems: IEmisiune[] = [
     {
         id: 1,
         title: "Interviu de vacanță cu Paul Ananie",

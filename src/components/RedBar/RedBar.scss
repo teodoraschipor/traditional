@@ -1,20 +1,11 @@
 @use "../../utils/variables";
 
 .redbar {
-    display: none;
-}
- 
-@media screen and (min-width: 900px) {
-
-    .redbar {
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        height: 40px;
-        padding-right: 8rem;
-        background-color: variables.$traditional-red;
-        //background-image: linear-gradient(variables.$traditional-red, #e00000df, variables.$traditional-red);
-    }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    background-color: variables.$traditional-red;
 
     .svg-inline--fa {
         color: white;
@@ -28,5 +19,15 @@
         cursor: pointer;
         opacity: 1;
         transition: 0.3s ease-in-out;
+    }
+}
+ 
+@media screen and (min-width: 900px) {
+
+    .redbar {
+        justify-content: flex-end;
+        padding-right: 8rem;
+        height: 40px;
+        //background-image: linear-gradient(variables.$traditional-red, #e00000df, variables.$traditional-red);
     }
 }

@@ -6,7 +6,6 @@ import { TraditionalTvRoutesNames } from "../../routes/routes-names";
 import Gallery from "../../components/Gallery/Gallery";
 import { useContext, useEffect, useState } from "react";
 import { LoadingContext } from "../../App";
-import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../firebase/config";
 import useLocalStorage from "../../hooks/useLocalStorage";
 import { Helmet, HelmetProvider } from 'react-helmet-async';
@@ -29,13 +28,16 @@ const Stiri = () => {
                 setLoading(false)
             } else {
                 const getStiri : any[] = [];
-                const querySnapshot = await getDocs(collection(db, "StiriList"));
-                querySnapshot.forEach((doc: any) => {
-                for (const [key, value] of Object.entries(doc.data().StiriList)) 
-                    getStiri.push(value)
-                setStiri(getStiri);
-                setLoading(false);
-                setStiriLocalStorage(getStiri)
+                const newsRef = db.collection("StiriList1");
+                newsRef.orderBy('date', 'desc').limit(10).get().then((querySnapshot) => {
+                    querySnapshot.forEach((doc) => {
+                        const title = doc.data().title;
+                        const imageSource = doc.data().imageSource;
+                        getStiri.push({title, imageSource})
+                    })
+                    setStiri(getStiri);
+                    setLoading(false);
+                    setStiriLocalStorage(getStiri);
                 })
             }
         }

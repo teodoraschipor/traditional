@@ -41,6 +41,7 @@ export interface IStire {
     image: string,
     author: string,
     content: string,
+    date: string
 }
 
 export interface IEmisiune {

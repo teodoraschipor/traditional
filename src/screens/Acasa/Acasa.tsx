@@ -29,16 +29,19 @@ const Acasa = () => {
                 setLoading(false)
             } else {
                 const getStiri : any[] = [];
-                const querySnapshot = await getDocs(collection(db, "UltimeleStiriList"));
-                querySnapshot.forEach((doc: any) => {
-                for (const [key, value] of Object.entries(doc.data().UltimeleStiriList)) 
-                    getStiri.push(value)
-                setStiri(getStiri);
-                setLoading(false);
-                setStiriLocalStorage(getStiri)
+                const newsRef = db.collection("StiriList1");
+                newsRef.orderBy('date', 'desc').limit(3).get().then((querySnapshot) => {
+                    querySnapshot.forEach((doc) => {
+                        const title = doc.data().title;
+                        const imageSource = doc.data().imageSource;
+                        getStiri.push({title, imageSource})
+                    })
+                    setStiri(getStiri);
+                    setLoading(false);
+                    setStiriLocalStorage(getStiri);
                 })
+                }
             }
-        }
         fetchData();
       }, [])
 

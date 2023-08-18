@@ -1,8 +1,16 @@
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import Title from "../../components/Title/Title";
 import "./Live.scss"
+import { useContext, useEffect } from "react";
+import { LoadingContext } from "../../App";
+
 
 const Live = () => {
+    const { loading, setLoading } = useContext(LoadingContext)
+
+    useEffect(() => {
+        setLoading(false)
+    }, [setLoading])
     return(
         <>
             <HelmetProvider>

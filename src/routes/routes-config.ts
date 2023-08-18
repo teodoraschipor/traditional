@@ -17,6 +17,9 @@ export const TraditionalTvRoutes: Record<TraditionalTvRoutesNames,TraditionalTvR
     TRADITIONALIDESEAMA: {
         path: "/traditionali-de-seama"
     },
+    PROGRAM: {
+        path: "/program"
+    },
     CONTACT: {
         path: "/contact"
     },
@@ -42,6 +45,6 @@ export const TraditionalTvRoutes: Record<TraditionalTvRoutesNames,TraditionalTvR
         path: "/cod-de-conduita"
     },
     STIRIITEM: {
-        path: "/stiri/:id"
+        path: "/stiri/:title"
     }
 }

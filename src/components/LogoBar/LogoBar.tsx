@@ -1,5 +1,5 @@
 import "./LogoBar.scss"
-import logo from "../../assets/logo.png"
+import logo from "../../assets/logo.webp"
 import { Link } from "react-router-dom";
 import { getRoutePath } from "../../routes/routes-utils";
 import { TraditionalTvRoutesNames } from "../../routes/routes-names";

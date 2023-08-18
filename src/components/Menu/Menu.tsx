@@ -9,7 +9,6 @@ const Menu = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
  // const firebase = useContext(FirebaseContext);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
   }, [])

@@ -1,70 +1,30 @@
 @use "../../utils/variables.scss";
 
-.slider {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 0px;
-    margin-bottom: 30px;
+.image-gallery-description {
+  font-size: 20px !important;
+  width: 100%;
 
-    .svg-inline--fa {
-        color: variables.$traditional-red;
-        filter:drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.821))
-    }
-    .svg-inline--fa:hover {
-        color: variables.$traditional-dark-red;
-        transition: 0.3s ease-in-out;
-    }
-
-    .image {
-        width: 85vw;
-        border-radius: 10px;
-        object-fit: cover;
-        @media screen and (min-width: 900px) {
-            width: 60vw;
-        }
-      }
-      
-      .right-arrow {
-        position: absolute;
-        top: 38%;
-        right: 6%;
-        font-size: 2.5rem;
-        z-index: 10;
-        cursor: pointer;
-        user-select: none;
-        @media screen and (min-width: 900px) {
-            font-size: 3rem;
-            right: 0px;
-            top: 45%;
-        }
-      }
-      
-      .left-arrow {
-        position: absolute;
-        top: 38%;
-        left: 6%;
-        font-size: 2.5rem;
-        z-index: 10;
-        cursor: pointer;
-        user-select: none;    
-        @media screen and (min-width: 900px) {
-            font-size: 3rem;
-            left: 0px;
-            top: 45%;
-        }
-      }
-
-      .slide-title {
-        z-index: 999;
-        font-size: 36px;
-        font-weight: bold;
-        text-align: center;
-        margin-bottom: 20px;
-        color: variables.$traditional-red;
-        text-shadow: 2px 0px 2px black;
-      }
+  @media screen and (min-width: 900px) {
+    font-size: 40px !important;
   }
-  
- 
+}
+
+.image-gallery-slide img {
+  height: auto !important;
+  @media screen and (min-width: 900px) {
+    height: calc(100vh - 300px) !important;
+  }
+}
+
+.carousel-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.image-gallery {
+  width: 100%;
+  @media screen and (min-width: 900px) {
+    width: 80%;
+  }
+}

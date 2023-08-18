@@ -45,7 +45,7 @@ const Carousel = () => {
                             <p>{item.title}</p>
                         </div>
                         <div className="carousel__item__photo">
-                            <img src={`${process.env.PUBLIC_URL}/logo.png`} alt={item.title} />
+                            <img src={`${process.env.PUBLIC_URL}/logo.webp`} alt={item.title} />
                         </div>
                     </div>
             })}

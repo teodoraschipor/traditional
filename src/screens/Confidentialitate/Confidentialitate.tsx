@@ -1,7 +1,15 @@
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import Title from "../../components/Title/Title";
+import { useContext, useEffect } from "react";
+import { LoadingContext } from "../../App";
 
 const Confidentialitate = () => {
+    const { loading, setLoading } = useContext(LoadingContext)
+
+    useEffect(() => {
+        setLoading(false)
+    }, [setLoading])
+
     return(
         <>
             <HelmetProvider>

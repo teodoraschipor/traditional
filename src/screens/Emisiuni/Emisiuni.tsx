@@ -9,10 +9,43 @@ import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../firebase/config";
 import useLocalStorage from "../../hooks/useLocalStorage";
 import { LoadingContext } from "../../App";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleArrowLeft, faCircleArrowRight } from "@fortawesome/free-solid-svg-icons";
 import Title from "../../components/Title/Title";
 import { Helmet, HelmetProvider } from 'react-helmet-async';
+import ImageGallery, { ReactImageGalleryItem } from "react-image-gallery";
+import "react-image-gallery/styles/scss/image-gallery.scss";
+
+const images = [
+    {
+        original: "https://firebasestorage.googleapis.com/v0/b/traditionaltv-84ca7.appspot.com/o/la-popasul-dorului.webp?alt=media&token=a743de20-07b6-49e1-a884-7f8ea1f8aea6",
+        thumbnail: "https://firebasestorage.googleapis.com/v0/b/traditionaltv-84ca7.appspot.com/o/la-popasul-dorului.webp?alt=media&token=a743de20-07b6-49e1-a884-7f8ea1f8aea6",
+        originalTitle: "La popasul dorului cu Ovidiu Purdea Someș",
+    },
+    {
+      original: "https://firebasestorage.googleapis.com/v0/b/traditionaltv-84ca7.appspot.com/o/dedicatii-muzicale.webp?alt=media&token=285f2301-7241-447e-8cad-b9bcca7023b5",
+      thumbnail: "https://firebasestorage.googleapis.com/v0/b/traditionaltv-84ca7.appspot.com/o/dedicatii-muzicale.webp?alt=media&token=285f2301-7241-447e-8cad-b9bcca7023b5",
+      originalTitle: "Dedicații Muzicale",
+    },
+    {
+      original: "https://firebasestorage.googleapis.com/v0/b/traditionaltv-84ca7.appspot.com/o/drag-de-viata-cu-doinasii.webp?alt=media&token=015f22e3-e163-4833-b694-a2fe756cd3e4",
+      thumbnail: "https://firebasestorage.googleapis.com/v0/b/traditionaltv-84ca7.appspot.com/o/drag-de-viata-cu-doinasii.webp?alt=media&token=015f22e3-e163-4833-b694-a2fe756cd3e4",
+      originalTitle: "Drag de viață cu Doinașii",
+    },
+    {
+        original: "https://firebasestorage.googleapis.com/v0/b/traditionaltv-84ca7.appspot.com/o/in-pas-cu-traditia.webp?alt=media&token=e0af4fe7-403e-4139-9acb-71271ddd08aa",
+        thumbnail: "https://firebasestorage.googleapis.com/v0/b/traditionaltv-84ca7.appspot.com/o/in-pas-cu-traditia.webp?alt=media&token=e0af4fe7-403e-4139-9acb-71271ddd08aa",
+        originalTitle: "În pas cu tradiția",
+    },
+    {
+        original: "https://firebasestorage.googleapis.com/v0/b/traditionaltv-84ca7.appspot.com/o/portret-muzical.webp?alt=media&token=8af1993f-4f43-4e2e-85f1-de0c1fa15082",
+        thumbnail:"https://firebasestorage.googleapis.com/v0/b/traditionaltv-84ca7.appspot.com/o/portret-muzical.webp?alt=media&token=8af1993f-4f43-4e2e-85f1-de0c1fa15082",
+        originalTitle: "Portret Muzical",
+    },
+    {
+        original: "https://firebasestorage.googleapis.com/v0/b/traditionaltv-84ca7.appspot.com/o/cu-iosif-pe-coclauri.webp?alt=media&token=ff4d5fea-6fcc-4e9a-8fec-ca21abf8a6f8",
+        thumbnail:"https://firebasestorage.googleapis.com/v0/b/traditionaltv-84ca7.appspot.com/o/cu-iosif-pe-coclauri.webp?alt=media&token=ff4d5fea-6fcc-4e9a-8fec-ca21abf8a6f8",
+        originalTitle: "Cu Iosif pe coclauri",
+    },
+];
 
 const Emisiuni = () => {
 
@@ -21,19 +54,6 @@ const Emisiuni = () => {
     const [emisiuni, setEmisiuni] = useState<any[]>([]);
     const [emisiuniLocalStorage, setEmisiuniLocalStorage]= useLocalStorage('EmisiuniList', defaultValue);
     const getStiriLocalStorage: any = localStorage.getItem("EmisiuniList");
-
-    const [current, setCurrent] = useState(0);
-    const [length, setLength] = useState(0);
-
-    const nextSlide = () => {
-        setLoading(true)
-        setCurrent(current === length - 1 ? 0 : current + 1);
-    };
-
-    const prevSlide = () => {
-        setLoading(true)
-        setCurrent(current === 0 ? length - 1 : current - 1);
-    };
 
     useEffect(() => {
         const fetchData = async() => {
@@ -49,7 +69,6 @@ const Emisiuni = () => {
                 for (const [key, value] of Object.entries(doc.data().EmisiuniList)) 
                     getEmisiuni.push(value)
                 setEmisiuni(getEmisiuni);
-                setLength(getEmisiuni.length);
                 setEmisiuniLocalStorage(getEmisiuni)
                 setLoading(false)
                 })
@@ -58,13 +77,16 @@ const Emisiuni = () => {
         fetchData();
       }, [getStiriLocalStorage, setEmisiuniLocalStorage, setLoading])
 
-    //   useEffect(() => {
-    //     console.log('loading: ', loading)
-    //   }, [loading])
-
-        // if (!Array.isArray(emisiuni) || emisiuni.length <= 0) {
-        //     return null;
-        //     }
+        const renderItem = (item: ReactImageGalleryItem) => {
+            return(
+                <div>
+                    <img className="image-gallery-image" src={item.original} title={item.originalTitle} alt={item.originalTitle} />
+                    <span 
+                    style={{ fontWeight: 'bold', textTransform: 'uppercase', background: '#b8000079', paddingLeft: '0', paddingRight: '0', bottom: '0', left: '0' }} 
+                    className="image-gallery-description">{item.originalTitle}</span>
+                </div>
+            )
+        }
 
     return(
         <>
@@ -77,25 +99,14 @@ const Emisiuni = () => {
                 </div>
             </HelmetProvider>
                 <Title text="Emisiuni" />
-                <section className='slider'>
-                    <FontAwesomeIcon className='left-arrow' icon={faCircleArrowLeft} onClick={prevSlide} />
-                    <FontAwesomeIcon className='right-arrow' icon={faCircleArrowRight} onClick={nextSlide} />
-                    {emisiuni.map((slide, index) => {
-                    return (
-                        <div
-                        className={index === current ? 'slide active' : 'slide'}
-                        key={index}
-                        >
-                        {index === current && (
-                            <div>
-                                <p className="slide-title">{slide.title}</p>
-                                <img onLoad={() => { setLoading(false)}} src={slide.imageSource} alt={slide.title} className='image' />
-                            </div>
-                        )}
-                        </div>
-                    );
-                    })}
-                </section>
+            <div className="carousel-container">
+                <ImageGallery 
+                    items={images}
+                    showPlayButton={false}
+                    showFullscreenButton={false}
+                    showIndex={true}
+                    renderItem={renderItem} />
+            </div>
         </>
       )
 }

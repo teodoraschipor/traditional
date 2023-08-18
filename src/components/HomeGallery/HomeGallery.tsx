@@ -8,7 +8,7 @@ const HomeGallery = (props: any) => {
     const displayFirst = (items: any) => {
         return items.map((item: any, index: number) => {
             if(index === 0)
-                return <div id={`div${index.toString()}`} className="home-gallery_primary_item" onClick={() => navigate('/stiri/0')} key={index}>
+                return <div id={`div${index.toString()}`} className="home-gallery_primary_item" onClick={() => navigate(`/stiri/${item.title}`)} key={index}>
                         <p className="home-gallery_primary_item-title">{item.title}</p>
                     </div>
         })
@@ -17,7 +17,7 @@ const HomeGallery = (props: any) => {
     const displaySecond = (items: any) => {
         return items.map((item: any, index: number) => {
             if(index !== 0) {
-                return <div id={`div${index.toString()}`} className="home-gallery_secondary_item" onClick={() => navigate(`/stiri/${index}`)} key={index}>
+                return <div id={`div${index.toString()}`} className="home-gallery_secondary_item" onClick={() => navigate(`/stiri/${item.title}`)} key={index}>
                             <p className="home-gallery_secondary_item-title">{item.title}</p>
                         </div>
             }

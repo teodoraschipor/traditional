@@ -20,6 +20,10 @@ export const menuItems: IMenuItems[] = [
         path: getRoutePath(TraditionalTvRoutesNames.TRADITIONALIDESEAMA),
     },
     {
+        name: "Program",
+        path: getRoutePath(TraditionalTvRoutesNames.PROGRAM),
+    },
+    {
         name: "Contact",
         path: getRoutePath(TraditionalTvRoutesNames.CONTACT),
     },
@@ -66,7 +70,7 @@ export const footerSections: IFooterItem[] = [
             {
                 name: "publicitate@traditionaltv.net",
                 type: "email",
-                path: "publicitate@traditionaltv.net",
+                path: "mailto: publicitate@traditionaltv.net",
             }
         ]
     },

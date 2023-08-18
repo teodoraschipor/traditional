@@ -3,16 +3,25 @@ import Title from "../../components/Title/Title";
 import "./Stire.scss";
 import { useParams } from "react-router-dom";
 import { EmisiuniItems } from "../../mockups";
-import { IStire } from "../../TypesInterfaces";
+import { IEmisiune, IStire } from "../../TypesInterfaces";
 import { Helmet, HelmetProvider } from 'react-helmet-async';
+import { useContext } from "react";
+import { LoadingContext } from "../../App";
+
 const HtmlToReactParser = require('html-to-react').Parser;
 
 const Emisiune = () => {
     
     const { id } = useParams();
-    const [emisiune, setEmisiune] = useState<IStire>({id: 0, title: "", image: "", author: "", content: ""});
+    const [emisiune, setEmisiune] = useState<IEmisiune>({id: 0, title: "", image: "", author: "", content: ""});
     const htmlToReactParser = new HtmlToReactParser();
 
+    const { loading, setLoading } = useContext(LoadingContext)
+
+    useEffect(() => {
+        setLoading(false)
+    }, [setLoading])
+    
     useEffect(() => {
         const searchStire = EmisiuniItems.find(element => element.id === parseInt(id!));
         if(searchStire) {

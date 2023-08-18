@@ -1,5 +1,5 @@
 import "./Footer.scss"
-import logo from "../../assets/logo.png"
+import logo from "../../assets/logo.webp"
 import { Link } from "react-router-dom";
 import AppText from "../AppText/AppText";
 import { footerSections } from "../../mockups";

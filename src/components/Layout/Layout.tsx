@@ -7,7 +7,7 @@ import { getRoutePath } from "../../routes/routes-utils";
 import { TraditionalTvRoutesNames } from "../../routes/routes-names";
 import { LoadingContext } from "../../App";
 import Loader from "../Loader/Loader";
-import sponsor from "../../assets/romvac.png"
+import sponsor from "../../assets/romvac.webp"
 
 const Layout = ({ children }: PropsWithChildren<{}>) => {
     const location = useLocation();
@@ -25,7 +25,7 @@ const Layout = ({ children }: PropsWithChildren<{}>) => {
                 {children}
             </div>
             </div>
-            <img src={sponsor} alt="Romvac" className="sponsor" />
+            <img src={sponsor} alt="Romvac" className="sponsor" onClick={() => window.open('https://www.romvac.ro/')} />
             <button className="pushable">
                 <span className="front" onClick={() => navigate("/live")}>
                     LIVE

@@ -15,7 +15,7 @@ const GalleryItem = (props: IGalleryItem) => {
         <div className={"gallery-item " + (focus && "focus")} onClick={() => {
             if(location.pathname === getRoutePath(TraditionalTvRoutesNames.STIRI))
                 {
-                    navigate(`/stiri/${props.id}`)
+                    navigate(`/stiri/${props.title}`)
                 }
             else if(location.pathname === getRoutePath(TraditionalTvRoutesNames.TRADITIONALIDESEAMA))
                 setFocus(true)

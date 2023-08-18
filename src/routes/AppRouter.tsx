@@ -15,10 +15,13 @@ import TermeniConditii from "../screens/TermeniConditii/TermeniConditii"
 import Informatii from "../screens/Informatii/Informatii"
 import CodConduita from "../screens/CodConduita/CodConduita"
 import Stire from "../screens/Stire/Stire"
+import ScrollToTop from "../components/ScrollToTop/ScrollToTop"
+import Program from "../screens/Program/Program"
 
 export const AppRouter = () => {
     return(
         <BrowserRouter basename="/">
+            <ScrollToTop>
             <div className="app">
                 <Routes>
                     <Route 
@@ -44,6 +47,12 @@ export const AppRouter = () => {
                     element={
                         <Layout>
                             <TraditionaliDeSeama />
+                        </Layout>} />
+                    <Route 
+                    path={getRoutePath(TraditionalTvRoutesNames.PROGRAM)} 
+                    element={
+                        <Layout>
+                            <Program />
                         </Layout>} />
                     <Route 
                     path={getRoutePath(TraditionalTvRoutesNames.CONTACT)} 
@@ -82,7 +91,7 @@ export const AppRouter = () => {
                             <TermeniConditii />
                         </Layout>} />
                     <Route 
-                    path={getRoutePath(TraditionalTvRoutesNames.INFORMMATII)} 
+                    path={getRoutePath(TraditionalTvRoutesNames.INFORMATII)} 
                     element={
                         <Layout>
                             <Informatii />
@@ -112,6 +121,7 @@ export const AppRouter = () => {
                     />
                 </Routes>
             </div>
+            </ScrollToTop>
         </BrowserRouter>
     )
 }

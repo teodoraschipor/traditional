@@ -12,7 +12,7 @@ function App() {
 
   return (
     <LoadingContext.Provider value={{ loading, setLoading }}>
-      <AppRouter />
+        <AppRouter />
     </LoadingContext.Provider>
   );
 }

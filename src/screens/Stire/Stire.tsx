@@ -2,48 +2,47 @@ import React, { useContext, useEffect, useState } from "react";
 import Title from "../../components/Title/Title";
 import "./Stire.scss";
 import { useParams } from "react-router-dom";
-import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../firebase/config";
 import { LoadingContext } from "../../App";
-import useLocalStorage from "../../hooks/useLocalStorage";
-import Loader from "../../components/Loader/Loader";
 import { Helmet, HelmetProvider } from 'react-helmet-async';
+
 const HtmlToReactParser = require('html-to-react').Parser;
 
 const Stire = () => {
     
-    const defaultValue : any = [];
-    const { id } = useParams();
+    const { title } = useParams();
     const { loading, setLoading } = useContext(LoadingContext)
     const htmlToReactParser = new HtmlToReactParser();
-    const getStiriLocalStorage : any = localStorage.getItem("StiriListContent")
-    const [stiriLocalStorage, setStiriLocalStorage]= useLocalStorage('StiriList', defaultValue);
     const [searchStire, setSearchStire] = useState<any>({});
 
     useEffect(() => {
         const fetchData = async() => {
             setLoading(true);
-            if(getStiriLocalStorage)
-            {
-                setSearchStire(getStiriLocalStorage[parseInt(id!)])
-                setLoading(false)
-            } else {
-                const getStiri : any[] = [];
-                const querySnapshot = await getDocs(collection(db, "StiriListContent"));
-                querySnapshot.forEach((doc: any) => {
-                for (const [key, value] of Object.entries(doc.data().StiriListContent)) 
-                    getStiri.push(value)
-                setSearchStire(getStiri[parseInt(id!)]);
-                setLoading(false);
-                setStiriLocalStorage(getStiri)
-                })
-            }
+            const collectionRef = db.collection("StiriList1");
+            const documentRef = collectionRef.doc(title?.replace("%20", " "));
+            documentRef.get().then((doc) => {
+                if(doc.exists) {
+                    const options = {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric',
+                        hour: 'numeric',
+                        minute: 'numeric'
+                    };
+                    const date = doc.data()!.date.toDate().toLocaleString('ro-RO', options);
+                    const imageSource = doc.data()!.imageSource;
+                    const author = doc.data()!.author;
+                    const title = doc.data()!.title;
+                    const content = doc.data()!.content;
+                    setSearchStire({ date: date, title: title, author: author, imageSource: imageSource, content: content })
+                    setLoading(false);
+                } else {
+                    return(<>A aparut o eroare!</>)
+                }
+            })
         }
         fetchData();
-    }, [getStiriLocalStorage, id, setLoading, setStiriLocalStorage])
-
-    if(loading)
-        return <Loader />
+    }, []);
 
     return(
         <>
@@ -59,6 +58,8 @@ const Stire = () => {
             <div className="title-image-container">
                 <img src={searchStire.imageSource} alt={searchStire.title} />
             </div>
+            
+            <p className="date">— {searchStire.date} —</p>
             <div className="stire-content">
                 {htmlToReactParser.parse(searchStire.content)}
             </div>

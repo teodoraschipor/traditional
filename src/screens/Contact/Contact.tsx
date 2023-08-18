@@ -4,6 +4,8 @@ import Title from "../../components/Title/Title";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { Helmet, HelmetProvider } from 'react-helmet-async';
+import { useContext, useEffect } from "react";
+import { LoadingContext } from "../../App";
 
 const Contact = () => {
     const form = useRef();
@@ -28,6 +30,11 @@ const Contact = () => {
     //     }
     //   );
   };
+  const { loading, setLoading } = useContext(LoadingContext)
+
+  useEffect(() => {
+      setLoading(false)
+  }, [setLoading])
 
     return(
         <>

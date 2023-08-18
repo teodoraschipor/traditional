@@ -1,7 +1,15 @@
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import Title from "../../components/Title/Title";
+import { LoadingContext } from '../../App';
+import { useContext, useEffect } from 'react';
 
 const Informatii = () => {
+    
+    const { loading, setLoading } = useContext(LoadingContext)
+
+    useEffect(() => {
+        setLoading(false)
+    }, [setLoading])
     return(
         <>
             <HelmetProvider>
@@ -34,7 +42,9 @@ const Informatii = () => {
             <a href = "mailto: traditionaltv@yahoo.ro">traditionaltv@yahoo.ro</a>
             <br/>
             - website: 
-            <a href="https://traditionaltv.net/">www.traditionaltv.net</a>      
+            <br/>
+            <a href="https://traditionaltv.net/">www.traditionaltv.net</a>   
+            <br/>   
             <a href="http://traditionaltvhd.ro" >www.traditionaltvhd.ro </a>
             <br/><br/>
             Organismul de reglementare: Consiliul Național al Audiovizualului –CNA

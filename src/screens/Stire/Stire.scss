@@ -4,6 +4,7 @@
     justify-content: center;
     margin-bottom: 30px;
     img {
+            object-fit: contain;
             width: 350px;
             height: 200px;
         @media screen and (min-width: 900px) {

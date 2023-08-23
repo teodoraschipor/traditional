@@ -22,7 +22,7 @@ const Program = () => {
             </HelmetProvider>
             <Title text="Program" />
             <br/>
-            In curând veți putea viziona detalii despre programul Tradițional TV!
+            In curând veți putea vizualiza detalii despre programul Tradițional TV!
         </>
     );
 }

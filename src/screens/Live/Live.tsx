@@ -11,6 +11,17 @@ const Live = () => {
     useEffect(() => {
         setLoading(false)
     }, [setLoading])
+
+    // useEffect(() => {
+    //     const element = document.querySelector('.live-iframe') as HTMLIFrameElement;
+    //     if(element) {
+    //         element.addEventListener('load', () => {
+    //             const iframeWindow = element.contentWindow;
+    //             iframeWindow?.scrollTo(0, 2400);
+    //         })
+    //     } 
+    // }, [])
+
     return(
         <>
             <HelmetProvider>

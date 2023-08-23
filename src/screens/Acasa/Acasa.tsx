@@ -17,8 +17,8 @@ const Acasa = () => {
     const location = useLocation();
     const { loading, setLoading } = useContext(LoadingContext)
     const [stiri, setStiri] = useState<any[]>([]);
-    const [stiriLocalStorage, setStiriLocalStorage]= useLocalStorage('UltimeleStiriList', defaultValue);
-    const getStiriLocalStorage: any = localStorage.getItem("UltimeleStiriList");
+    const [stiriLocalStorage, setStiriLocalStorage]= useLocalStorage('StiriList1', defaultValue);
+    const getStiriLocalStorage: any = localStorage.getItem("StiriList1");
 
     useEffect(() => {
         const fetchData = async() => {

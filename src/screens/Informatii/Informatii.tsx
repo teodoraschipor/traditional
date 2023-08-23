@@ -38,12 +38,11 @@ const Informatii = () => {
             <br/>
             Coordonatele furnizorului de servicii mass-media:
             <br/>
-            - e-mail: 
-            <a href = "mailto: traditionaltv@yahoo.ro">traditionaltv@yahoo.ro</a>
+            - e-mail: <a href = "mailto: traditionaltv@yahoo.ro">traditionaltv@yahoo.ro</a>
             <br/>
             - website: 
             <br/>
-            <a href="https://traditionaltv.net/">www.traditionaltv.net</a>   
+            <a href="https://traditionaltvhd.ro/">www.traditionaltvhd.ro</a>   
             <br/>   
             <a href="http://traditionaltvhd.ro" >www.traditionaltvhd.ro </a>
             <br/><br/>

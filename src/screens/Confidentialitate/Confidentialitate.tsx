@@ -27,7 +27,7 @@ const Confidentialitate = () => {
             <br/><br/>
             1.	Cine suntem?
             <br/>
-            Website-ul <a href="http://traditionaltvhd.ro">traditionaltvhd.ro</a> este detinut de catre societatea SUCEAVA CULTURAL MEDIA SRL, Responsabila de datele dumneavoastra personale. In cazul in care observati ca datele dumneavoastra sunt in pericol sau sunt folosite de catre noi in alt sens cu care nu sunteti de acord, va rugam sa ne contactati pentru a corecta aceste probleme. Precizam de la inceput ca vom folosi datele dumneavoastra doar in scopurile declarate mai jos:
+            Website-ul <a href="http://traditionaltv.net">traditionaltv.net</a> este detinut de catre societatea SUCEAVA CULTURAL MEDIA SRL, Responsabila de datele dumneavoastra personale. In cazul in care observati ca datele dumneavoastra sunt in pericol sau sunt folosite de catre noi in alt sens cu care nu sunteti de acord, va rugam sa ne contactati pentru a corecta aceste probleme. Precizam de la inceput ca vom folosi datele dumneavoastra doar in scopurile declarate mai jos:
             <br />
             2.	Ce date colectam ?
             <br/>

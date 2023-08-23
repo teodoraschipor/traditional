@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import Title from "../../components/Title/Title";
 import "./Stire.scss";
 import { useParams } from "react-router-dom";
-import { EmisiuniItems } from "../../mockups";
 import { IEmisiune, IStire } from "../../TypesInterfaces";
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { useContext } from "react";
@@ -21,14 +20,6 @@ const Emisiune = () => {
     useEffect(() => {
         setLoading(false)
     }, [setLoading])
-    
-    useEffect(() => {
-        const searchStire = EmisiuniItems.find(element => element.id === parseInt(id!));
-        if(searchStire) {
-            setEmisiune(searchStire); 
-        }
-        
-    }, [id])
 
     return(
         <>

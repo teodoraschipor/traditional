@@ -2,7 +2,7 @@ import "./Footer.scss"
 import logo from "../../assets/logo.webp"
 import { Link } from "react-router-dom";
 import AppText from "../AppText/AppText";
-import { footerSections } from "../../mockups";
+import { footerSections } from "../../data";
 import { getRoutePath } from "../../routes/routes-utils";
 import { TraditionalTvRoutesNames } from "../../routes/routes-names";
 

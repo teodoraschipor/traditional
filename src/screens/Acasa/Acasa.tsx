@@ -4,44 +4,36 @@ import { getRoutePath } from "../../routes/routes-utils";
 import { TraditionalTvRoutesNames } from "../../routes/routes-names";
 import { useContext, useEffect, useState } from "react";
 import { LoadingContext } from "../../App";
-import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../firebase/config";
-import useLocalStorage from "../../hooks/useLocalStorage";
 import HomeGallery from "../../components/HomeGallery/HomeGallery";
 import "./Acasa.scss"
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 const Acasa = () => {
 
-    const defaultValue : any = [];
     const location = useLocation();
     const { loading, setLoading } = useContext(LoadingContext)
     const [stiri, setStiri] = useState<any[]>([]);
-    const [stiriLocalStorage, setStiriLocalStorage]= useLocalStorage('StiriList1', defaultValue);
-    const getStiriLocalStorage: any = localStorage.getItem("StiriList1");
+    const getStiriLocalStorage = localStorage.getItem("StiriList1");
 
     useEffect(() => {
+        if(getStiriLocalStorage) {
+            localStorage.removeItem("StiriList1")
+        }
         const fetchData = async() => {
             setLoading(true);
-            if(getStiriLocalStorage)
-            {
-                setStiri(getStiriLocalStorage!)
-                setLoading(false)
-            } else {
-                const getStiri : any[] = [];
-                const newsRef = db.collection("StiriList1");
-                newsRef.orderBy('date', 'desc').limit(3).get().then((querySnapshot) => {
-                    querySnapshot.forEach((doc) => {
-                        const title = doc.data().title;
-                        const imageSource = doc.data().imageSource;
-                        getStiri.push({title, imageSource})
-                    })
-                    setStiri(getStiri);
-                    setLoading(false);
-                    setStiriLocalStorage(getStiri);
+            const getStiri : any[] = [];
+            const newsRef = db.collection("StiriList1");
+            newsRef.orderBy('date', 'desc').limit(3).get().then((querySnapshot) => {
+                querySnapshot.forEach((doc) => {
+                    const title = doc.data().title;
+                    const imageSource = doc.data().imageSource;
+                    getStiri.push({title, imageSource})
                 })
-                }
-            }
+                setStiri(getStiri);
+                setLoading(false);
+            })
+        }
         fetchData();
       }, [])
 

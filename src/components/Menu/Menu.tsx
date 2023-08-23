@@ -2,7 +2,7 @@ import "./Menu.scss";
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom"
 import { IMenuItems } from "../../TypesInterfaces";
-import { menuItems } from "../../mockups";
+import { menuItems } from "../../data";
 
 const Menu = () => {
     
